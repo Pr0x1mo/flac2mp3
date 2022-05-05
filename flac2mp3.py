@@ -1,20 +1,15 @@
-# pip install fastprogress
 # pip install pydub
 from pydub import AudioSegment
 from pydub.utils import mediainfo
-from fastprogress import progress_bar
 import os
 import glob
-from pathlib import Path
-from concurrent.futures.process import ProcessPoolExecutor
-import concurrent
+
 
 
 def convert(mp3folder):
-    folder_with_albums = mp3folder  # Path with folders of flac files
 
     dirs = Path(mp3folder).glob('**/*.flac')
-    #print('this is dirs', dirs)
+
     for ost in dirs:
         print("\nConverting ", ost, '\n')
         flac_audio = AudioSegment.from_file(ost, "flac")
@@ -23,4 +18,4 @@ def convert(mp3folder):
     print('\n\n')
 
 if __name__ == "__main__":
-    convert(r'C:\Users\xavie\Desktop\Pinback')
+    convert(r'your_folder_with_flac')
